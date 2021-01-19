@@ -31,9 +31,9 @@
 %% NODES
 
 \node (t1_label) [invis] {$t1$};
-\node (t1) [normal, right of=t1_label, text width=5cm, node distance=3.5cm] {Administer test to group of individuals $G$};
+\node (t1) [normal, right of=t1_label, text width=5cm, node distance=3.5cm] {Administer questions to group of individuals $G$};
 \node (t2_label) [invis, below of=t1_label] {$t2$};
-\node (t2) [normal, right of=t2_label, node distance=3.5cm] {Re-administer test to same group $G$};
+\node (t2) [normal, right of=t2_label, node distance=3.5cm] {Re-administer questions to same group $G$};
 \node (t3_label) [invis, below of=t2_label] {$t3$};
 \node (t3) [normal, right of=t3_label, text width=5cm,node distance=3.5cm] {Compute correlations between scores at $t1$ and $t2$};
 
@@ -57,7 +57,7 @@
 
 %% NODES
 
-\node (t1) [normal] {Develop alternate forms $F1$ and $F2$};
+\node (t1) [normal] {Develop \emph{alternate forms} of questions $F1$ and $F2$};
 \node (t2a) [normal, below left of=t1, node distance=3cm] {Administer form $F1$ to group of individuals $G$};
 \node (t2b) [normal, right of=t2a, node distance=5cm] {Administer form $F2$ to same group of individuals $G$};
 \node (t2_label) [left of=t2a] {$t2$};
@@ -88,22 +88,29 @@
 
 %% NODES
 
-\node (t1_label) [invis] {$t1$};
-\node (t1) [normal, right of=t1_label] {Administer test to group of individuals $G$};
-\node (t2_label) [invis, below of=t1_label] {$t2$};
-\node (t2) [normal, right of=t2_label] {Re-administer test to group $G$};
-\node (t3) [normal, right of=t2, node distance=5cm] {Compute correlations between scores at $t1$ and $t2$};
+\node (t1) [normal] {Split test into two halves $H1$ and $H2$};
+\node (t2a) [normal, below left of=t1, node distance=3cm] {Administer half $H1$ to group of individuals $G$};
+\node (t2b) [normal, right of=t2a, text width=4.5cm, node distance=5cm] {Administer other half $H2$ to same group of individuals $G$};
+\node (t2_label) [left of=t2a] {$t2$};
+\node (t1a) [invis, above of=t2a] {};
+\node (t1_label) [invis, left of=t1a] {$t1$};
+\node (t3) [normal, below of=t1, text width=5.5cm,  node distance=4.7cm] {Compute correlations between scores of $H1$ and $H2$};
+\node (t3_label)[invis, below of=t2_label] {$t3$};
 
 
 %% ARROWS 
 
-\draw [arrow] (t1) -- node[anchor=west] {Time elapsing} (t2);
-\draw [arrow] (t2) -- (t3);
+\draw [arrow] (t1) -- (t2a);
+\draw [arrow] (t1) -- (t2b); 
+%node[anchor=west] {Time elapsing}
+\draw [arrow] (t2a) -- (t3);
+\draw [arrow] (t2b) -- (t3);
 
 \end{tikzpicture}
 
 
 \pagebreak
+
 
 
 4. Internal consistency
